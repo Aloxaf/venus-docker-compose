@@ -17,7 +17,7 @@ services:
       - ./.venus/env:/env
       - ./.venus/root:/root
       - ./compose:/compose
-      - ${SNAP_SHOT-/tmp/tmp}:/root/snapshot.car
+      - ${SNAP_SHOT-/tmp/tmp}:/root/snapshot.car.zst
       - ${GEN_FILE-/tmp/tmp}:/root/genesis.car
     environment:
       - HTTPS_PROXY=${proxy}

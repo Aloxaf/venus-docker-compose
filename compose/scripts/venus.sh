@@ -21,7 +21,7 @@ else
 
     if [ ! -z $SNAP_SHOT ]
     then
-        Args="$Args --import-snapshot=/root/snapshot.car"
+        Args="$Args --import-snapshot=/root/snapshot.car.zst"
     fi
 
     if [ -z $SNAP_SHOT  ] && [ ! -z $GEN_FILE ] 
