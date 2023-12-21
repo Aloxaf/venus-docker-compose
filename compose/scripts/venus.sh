@@ -42,7 +42,11 @@ else
 
 
     echo "EXEC: /app/venus daemon $Args \n\n"
-    /app/venus daemon $Args &
+    if [[ ! -z $SNAP_SHOT ]]; then
+        /app/venus daemon $Args
+    else
+        /app/venus daemon $Args &
+    fi
 
     # restart to change api
     while [[ ! -f ~/.venus/config.json ]]; do
