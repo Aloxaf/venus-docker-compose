@@ -45,8 +45,10 @@ else
     /app/venus daemon $Args &
 
     # restart to change api
-    echo "wait to restart ..."
-    sleep 30
+    while [[ ! -f ~/.venus/config.json ]]; do
+        echo "wait to restart ..."
+        sleep 10
+    done
     echo "restart ..."
     kill $!
     jq '.api.apiAddress="/ip4/0.0.0.0/tcp/3453" ' ~/.venus/config.json > ~/.venus/config.json.tmp
