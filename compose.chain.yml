@@ -22,8 +22,8 @@ services:
     environment:
       - HTTPS_PROXY=${proxy}
       - TZ=${TZ-Asia/Shanghai}
-    env_file:
-      - ./chain.env
+      - SNAP_SHOT=${SNAP_SHOT}
+      - GEN_FILE=${GEN_FILE}
     entrypoint: "/script/wait-for-it.sh auth:8989 -t 0  --  /compose/scripts/venus.sh"
     depends_on:
       - auth
